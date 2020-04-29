@@ -1,0 +1,36 @@
+<!-- 戻るor閉じる-->
+<script type="text/javascript">
+    if (history.length < 2) {
+        document.write("<a href='javascript:self.close()'>閉じる<br></a>");
+    } else {
+        document.write("<a href='javascript:history.back()'>戻る<br></a>");
+    }
+</script>
+
+<!-- 飛ばないリンク -->
+<a href="javascript:void(0)">クリック<br></a>
+
+<!-- トップへ戻る(シンプル)-->
+<input type="button" value="トップへ" onClick="document.location='sample.html';">
+
+<!--トップへ戻る(応用)-->
+<form><input type="button" value="トップへ" onClick="link()"></form> 
+
+<script type="text/javascript">
+function link() {
+	document.location = "sample.html";
+}
+</script>
+
+<!-- 指定アドレスにメール -->
+<form><input type="button" value="メール" onClick="sendmail()"></form> 
+
+<script type="text/javascript">
+function sendmail() {
+	var acount = "fcattomarks"; 
+	//アカウント
+	var domain = "gmail.com";
+	//ドメイン
+	document.location = "mailto:" + acount + "@" + domain; //メールアドレス生成
+}
+</script>
