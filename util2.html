@@ -1,0 +1,40 @@
+<!--ウィンドウサイズ(リアルタイム、フォーム未使用)-->
+<span id="winsize2"></span>
+<script type="text/javascript">
+//読み込み時の表示
+window_load2();
+
+//ウィンドウサイズ変更時に更新
+window.onresize = window_load2;
+
+//サイズの表示
+function window_load2() {
+	var sW,sH,s;
+	sW = window.innerWidth;
+	sH = window.innerHeight;
+
+	s = "ウィンドウサイズ：横幅 = " + sW + " / 高さ = " + sH;
+	document.getElementById("winsize2").innerHTML = s;
+}
+</script>
+
+<form name="form_comma">
+    <input type="text" name="f_input" value="1234567890">
+    <input type="button" value="→" onClick="number_format()">
+    <input type="text" name="f_output">
+    </form>
+    
+    <script type="text/javascript">
+    //フォームから数値を取得
+    function number_format(){
+        var str = document.form_comma.f_input.value; //*1
+        document.form_comma.f_output.value = getComma(str); //*2
+    }
+    
+    //数字にカンマを付ける
+    function getComma(num) {
+        num = new String(num).replace(/,/g, ""); //一旦カンマを削除（*3）
+        while(num != (num = num.replace(/^(-?\d+)(\d{3})/, "$1,$2"))); //3桁毎にカンマを挿入（*4）
+        return num;
+    }
+    </script>
