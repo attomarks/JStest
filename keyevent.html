@@ -1,0 +1,72 @@
+<!-- キー入力の検知 -->
+<input type="text" id="f_text" value="ここに入力" size="40" onKeyDown="keyInput(event)">
+<span id="text_code"></span>
+
+<script type="text/javascript">
+//キー入力の検知
+function keyInput(event) { //*2
+	var key_event = event || window.event; //*3
+	var key_shift = (key_event.shiftKey); //*4
+	var key_ctrl = (key_event.ctrlKey);
+	var key_alt = (key_event.altKey);
+	var key_meta = (key_event.metaKey);
+	var key_any = key_event.keyCode; //*5
+	//キーに対応した処理
+	var s = "";
+	if (key_shift) s += "shiftキー ";
+	if (key_ctrl) s += "ctrlキー ";
+	if (key_alt) s += "altキー ";
+	if (key_meta) s += "metaキー ";
+	//出力
+	document.getElementById("text_code").innerHTML = s + "Code=" + key_any;
+}
+</script></br>
+
+<!-- キー入力の検知 -->
+<input type="button" value="①" onClick="keyClick(1)">
+<input type="button" value="②" onClick="keyClick(2)">
+<input type="button" value="③" onClick="keyClick(3)">
+<span id="text_key"></span>
+
+<script type="text/javascript">
+//特殊キーの初期値
+key_shift = false;
+key_ctrl = false;
+key_alt = false;
+key_meta = false;
+
+//キーが押されていることを検知
+document.onkeydown = function(event) {
+	var key_event = event|| window.event;
+	key_shift = (key_event.shiftKey);
+	key_ctrl = (key_event.ctrlKey);
+	key_alt = (key_event.altKey);
+	key_meta = (key_event.metaKey);
+	//出力
+	keyClick(0);
+}
+
+//キーが離されたことを検知
+document.onkeyup = function(event) {
+	var key_event = event|| window.event;
+	key_shift = (key_event.shiftKey);
+	key_ctrl = (key_event.ctrlKey);
+	key_alt = (key_event.altKey);
+	key_meta = (key_event.metaKey);
+	//出力
+	keyClick(0);
+}
+
+//クリック時の動作
+function keyClick(num) {
+	var s = "";
+	if (num > 0) s = num + ":click! ";
+	
+	if (key_shift) s += "shiftキー ";
+	if (key_ctrl) s += "ctrlキー ";
+	if (key_alt) s += "altキー ";
+	if (key_meta) s += "metaキー ";
+	//出力
+	document.getElementById("text_key").innerHTML = s;
+}
+</script>
