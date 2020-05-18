@@ -13,7 +13,7 @@ function sample_alt() {
 	alert("nの値:" + n);
 </script>
 
-<!-- 文字列呼び出し -->
+<!-- フォーム内に文字列表示 -->
 <input type="text" name="textbox" id="textbox" size="30">
 <a href="sample.html" onMouseOver="msg(1)" onMouseOut="msg(0)">サンプル</a>／
 <a href="rng.html" onMouseOver="msg(2)" onMouseOut="msg(0)">乱数</a>
@@ -29,4 +29,17 @@ function msg(num) { //*1
 	}
 }
 </script>
+
+<!-- フォーム送信前に確認　-->
+<form method="post" action="sample.html" onSubmit="return checkSubmit()">
+	<input type="text" name="data" value="">
+	<input type="submit" value="送信する">
+	<input type="reset" value="クリア">
+	</form>
+	
+	<script type="text/javascript">
+	function checkSubmit() {
+		return confirm("送信します。よろしいですか？");
+	}
+	</script>
 

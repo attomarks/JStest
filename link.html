@@ -27,10 +27,24 @@ function link() {
 
 <script type="text/javascript">
 function sendmail() {
-	var acount = "fcattomarks"; 
+	var acount = "user"; 
 	//アカウント
-	var domain = "gmail.com";
+	var domain = "domain.sample";
 	//ドメイン
 	document.location = "mailto:" + acount + "@" + domain; //メールアドレス生成
+}
+</script>
+
+<!-- 指定アドレスにメール(cc&件名&本文付) -->
+<span id="view_mail"></span>
+
+<script type="text/javascript">
+acount2 = "user2"; //アカウント
+domain2 = "domain.sample"; //ドメイン
+ma = acount2 + "@" + domain2;
+document.getElementById("view_mail").innerHTML = "<a href='javascript:sendmail2()'>" + ma + "</a>"; //メールアドレス表示
+
+function sendmail2() {
+	this.location.href = "mailto:" + ma + "?cc=user@dammy.net&subject=メールタイトル&body=メール本文はここ";
 }
 </script>

@@ -1,0 +1,67 @@
+<!-- カウントアップ -->
+<form name="form_count"><input name="counter" type="text" size="10"></form>
+
+<script type="text/javascript">
+count = 0; //カウントの初期値
+timerID = setInterval('countup()',1000); //1秒毎にcountup()を呼び出し
+
+function countup() {
+	count++;
+	document.form_count.counter.value = count;
+}
+</script>
+
+<!-- カウントダウン　-->
+<form name="form_countdown">
+    <input name="counter2" type="text" value="60" size="10">
+    <input name="start" type="button" value="開始" onClick="countstart()">
+    <input name="stop" type="button" value="停止" onClick="countstop()">
+    </form>
+    
+    <script type="text/javascript">
+    function countstart() {
+        count2 = eval(document.form_countdown.counter2.value);
+        timerID2 = setInterval('countdown()',1000);
+        document.form_countdown.start.disabled = true; //開始ボタンを使用禁止
+    }
+    
+    function countstop() {
+        clearInterval(timerID2);
+        document.form_countdown.start.disabled = false; //開始ボタンを解除
+        document.form_countdown.reset(); //初期値に戻す
+    }
+    
+    function countdown() {
+        document.form_countdown.counter2.value= count2; //カウント表示
+        count2--; //カウントダウン
+        if (count2 < 0) countstop(); //カウント終了
+    }
+    </script>
+
+<!-- カウントアップ (時刻)　-->
+<form name="form_count2"><input name="counter2" type="text" size="10"></form>
+
+<script type="text/javascript">
+count3 = 0;
+timerID = setInterval('countup2()',1000);
+
+function countup2() {
+	count3++;
+	document.form_count2.counter2.value =count_format(count3); //書式を整えて表示
+}
+
+function count_format(sec) {
+	//sec=秒数 fix=小数桁数
+	var ts = sec.toFixed(0); //小数点以下の調整 (*1)
+	var tm = Math.floor(ts / 60); //秒数切り捨て (*2)
+	ts = ts % 60; //60秒未満の秒数 (*3)
+	var th = Math.floor(tm / 60); //分の切り捨て (*4)
+	tm = tm % 60; //60分未満の分数 (*5)
+	//表示の整形 (*6)
+	if (ts < 10) ts = "0" + ts;
+	if (tm < 10) tm = "0" + tm;
+	if (th < 10) th = "0" + th;
+	return th + ":" + tm + ":" + ts; //文字列を返す (*7)  
+}
+</script> 
+
