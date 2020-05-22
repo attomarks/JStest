@@ -36,7 +36,7 @@ function sendmail() {
 </script>
 
 <!-- 指定アドレスにメール(cc&件名&本文付) -->
-<span id="view_mail"></span>
+<span id="view_mail"></span></br>
 
 <script type="text/javascript">
 acount2 = "user2"; //アカウント
@@ -48,3 +48,24 @@ function sendmail2() {
 	this.location.href = "mailto:" + ma + "?cc=user@dammy.net&subject=メールタイトル&body=メール本文はここ";
 }
 </script>
+
+<!-- 戻る ()　-->
+<span id="view_back"></span></br>
+<script type="text/javascript">
+	var ref = document.referrer; //前ページのURL
+	
+	if (ref != "") {
+		var n = ref.indexOf("//")+2;
+		var m = ref.indexOf("/",n+1);
+		if (m == -1) {m = ref.length;}
+		//ドメイン名を抜き出す
+		if (n > -1) {ref = ref.substring(n,m);}
+	}
+	//ドメイン名が同じ場合
+	if (document.domain == ref) {
+		s = "<a href='javascript:history.back()'>戻る</a>";
+	} else {
+		s = "<a href='javascript:this.close()'>閉じる</a>";
+	}
+	document.getElementById("view_back").innerHTML = s;
+	</script>
