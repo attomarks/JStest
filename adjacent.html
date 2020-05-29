@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>insertAdjacentHTMLサンプル</title>
+    </head>
+    <body>
+        <div id="para1">サンプルコード1</div>
+        <script>
+            var ele = document.getElementById("para1");
+            ele.insertAdjacentHTML("beforebegin", "beforebegin");
+        </script>
+        <div id="para2">サンプルコード2</div>
+        <script>
+            var ele = document.getElementById("para2");
+            ele.insertAdjacentHTML("afterbegin", "afterbegin");
+        </script>
+        <div id="para3">サンプルコード3</div>
+        <script>
+            var ele = document.getElementById("para3");
+            ele.insertAdjacentHTML("beforeend", "beforeend");
+        </script>
+        <div id="para4">サンプルコード4</div>
+        <script>
+            var ele = document.getElementById("para4");
+            ele.insertAdjacentHTML("afterend", "afterend");
+        </script>
+    </body>
+</html>
