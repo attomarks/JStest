@@ -1,0 +1,15 @@
+<div id="count">スタート！</div>
+<script>
+    var sec = 5;
+
+    function countdown(){
+        if(sec <= 0){
+            document.getElementById("count").innerHTML = "時間切れ";
+            clearInterval(id);
+        }else{
+            document.getElementById("count").innerHTML = sec--;
+        }
+    }
+
+    var id = setInterval('countdown()', 1000);
+</script>
