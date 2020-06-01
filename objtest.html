@@ -1,7 +1,7 @@
 <script>
-var Pokemon = function() {
-    var name;    //プロパティ (Javaにおけるフィールド)
-    var hp;
+var Pokemon = function(name, hp) {
+    this.name = name;    //プロパティ (Javaにおけるフィールド)
+    this.hp = hp;
  
     this.action1 = function() {  //メソッド
         document.write(this.name + "は ねむりはじめた！<br>");
@@ -14,15 +14,13 @@ var Pokemon = function() {
     }
 }
 
-var poke1 = new Pokemon();
-poke1.name = "カビゴン";
-poke1.hp = 300;
+var poke1 = new Pokemon("カビゴン", 300);
 document.write("ゆけっ！" + poke1.name + "！<br>");
 
 
 poke1.action1();
-document.write(poke1.name + " : HP" + poke1.hp + "<br>");
+document.write("HP:" + poke1.hp + "<br>");
 poke1.action2();
-document.write(poke1.name + " : HP" + poke1.hp + "<br>");
+document.write("HP:" + poke1.hp + "<br>");
 
 </script>
