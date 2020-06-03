@@ -1,7 +1,8 @@
 <!-- カウントダウン -->
 <div id="count">スタート！</div>
 <script>
-    var sec = 60;
+    sec = 60;  //自動的に数値型になる(動的型付け)
+    sec = "文字列";  //自動的に文字列型になる
 
     function countdown(){
         document.getElementById("count").innerHTML = sec--;
