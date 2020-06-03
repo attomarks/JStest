@@ -1,0 +1,27 @@
+<script>
+var Pikachu = function(name, hp) {
+    this.name = name;    //プロパティ (Javaにおけるフィールド)
+    this.hp = hp;
+ 
+    this.sleep = function() {  //メソッド
+        document.write(this.name + "は ねむりはじめた！<br>");
+        this.hp += 20; 
+    }
+ 
+    this.bolt = function(target) {
+        document.write(this.name + "の 10まんボルト！<br>");
+        target.hp -= 15;
+    }
+}
+
+var pika1 = new Pikachu("ピカチュウ", 60);
+document.write(pika1.name + " HP:" + pika1.hp + "<br>");
+var pika2 = new Pikachu("ピカピ", 70);
+document.write(pika2.name + " HP:" + pika2.hp + "<br>");
+
+pika1.bolt(pika2);
+document.write(pika2.name + " HP:" + pika2.hp + "<br>");
+pika2.sleep();
+document.write(pika2.name + " HP:" + pika2.hp + "<br>");
+
+</script>
